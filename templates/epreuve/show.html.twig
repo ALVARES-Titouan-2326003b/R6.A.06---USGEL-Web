@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Epreuve{% endblock %}
+
+{% block body %}
+    <h1>Epreuve</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ epreuve.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ epreuve.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_epreuve_index') }}">back to list</a>
+
+    <a href="{{ path('app_epreuve_edit', {'id': epreuve.id}) }}">edit</a>
+
+    {{ include('epreuve/_delete_form.html.twig') }}
+{% endblock %}
