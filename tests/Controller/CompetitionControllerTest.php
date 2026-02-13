@@ -42,7 +42,6 @@ final class CompetitionControllerTest extends WebTestCase
 
     public function testNew(): void
     {
-        $this->markTestIncomplete();
         $this->client->request('GET', sprintf('%snew', $this->path));
 
         self::assertResponseStatusCodeSame(200);
@@ -59,7 +58,6 @@ final class CompetitionControllerTest extends WebTestCase
 
     public function testShow(): void
     {
-        $this->markTestIncomplete();
         $fixture = new Competition();
         $fixture->setNom('My Title');
         $fixture->setChampionnat('My Title');
@@ -77,7 +75,6 @@ final class CompetitionControllerTest extends WebTestCase
 
     public function testEdit(): void
     {
-        $this->markTestIncomplete();
         $fixture = new Competition();
         $fixture->setNom('Value');
         $fixture->setChampionnat('Value');
@@ -102,7 +99,6 @@ final class CompetitionControllerTest extends WebTestCase
 
     public function testRemove(): void
     {
-        $this->markTestIncomplete();
         $fixture = new Competition();
         $fixture->setNom('Value');
         $fixture->setChampionnat('Value');

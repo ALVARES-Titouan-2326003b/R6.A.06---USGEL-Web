@@ -13,7 +13,7 @@ final class NomSportControllerTest extends WebTestCase
     private KernelBrowser $client;
     private EntityManagerInterface $manager;
     private EntityRepository $nomSportRepository;
-    private string $path = '/nom/sport/';
+    private string $path = '/nom-sport/';
 
     protected function setUp(): void
     {
@@ -42,7 +42,6 @@ final class NomSportControllerTest extends WebTestCase
 
     public function testNew(): void
     {
-        $this->markTestIncomplete();
         $this->client->request('GET', sprintf('%snew', $this->path));
 
         self::assertResponseStatusCodeSame(200);
@@ -58,7 +57,6 @@ final class NomSportControllerTest extends WebTestCase
 
     public function testShow(): void
     {
-        $this->markTestIncomplete();
         $fixture = new NomSport();
         $fixture->setNom('My Title');
 
@@ -75,7 +73,6 @@ final class NomSportControllerTest extends WebTestCase
 
     public function testEdit(): void
     {
-        $this->markTestIncomplete();
         $fixture = new NomSport();
         $fixture->setNom('Value');
 
@@ -88,7 +85,7 @@ final class NomSportControllerTest extends WebTestCase
             'nom_sport[nom]' => 'Something New',
         ]);
 
-        self::assertResponseRedirects('/nom/sport/');
+        self::assertResponseRedirects('/nom-sport/');
 
         $fixture = $this->nomSportRepository->findAll();
 
@@ -97,7 +94,6 @@ final class NomSportControllerTest extends WebTestCase
 
     public function testRemove(): void
     {
-        $this->markTestIncomplete();
         $fixture = new NomSport();
         $fixture->setNom('Value');
 
@@ -107,7 +103,7 @@ final class NomSportControllerTest extends WebTestCase
         $this->client->request('GET', sprintf('%s%s', $this->path, $fixture->getId()));
         $this->client->submitForm('Delete');
 
-        self::assertResponseRedirects('/nom/sport/');
+        self::assertResponseRedirects('/nom-sport/');
         self::assertSame(0, $this->nomSportRepository->count([]));
     }
 }

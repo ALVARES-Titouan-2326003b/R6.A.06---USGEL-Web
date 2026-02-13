@@ -42,7 +42,6 @@ final class EpreuveControllerTest extends WebTestCase
 
     public function testNew(): void
     {
-        $this->markTestIncomplete();
         $this->client->request('GET', sprintf('%snew', $this->path));
 
         self::assertResponseStatusCodeSame(200);
@@ -58,7 +57,6 @@ final class EpreuveControllerTest extends WebTestCase
 
     public function testShow(): void
     {
-        $this->markTestIncomplete();
         $fixture = new Epreuve();
         $fixture->setNom('My Title');
 
@@ -75,7 +73,6 @@ final class EpreuveControllerTest extends WebTestCase
 
     public function testEdit(): void
     {
-        $this->markTestIncomplete();
         $fixture = new Epreuve();
         $fixture->setNom('Value');
 
@@ -97,7 +94,6 @@ final class EpreuveControllerTest extends WebTestCase
 
     public function testRemove(): void
     {
-        $this->markTestIncomplete();
         $fixture = new Epreuve();
         $fixture->setNom('Value');
 
