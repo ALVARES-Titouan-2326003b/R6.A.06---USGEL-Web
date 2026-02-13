@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EpreuveCompetition{% endblock %}
+
+{% block body %}
+    <h1>EpreuveCompetition</h1>
+
+    <table class="table">
+        <tbody>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_epreuve_competition_index') }}">back to list</a>
+
+    <a href="{{ path('app_epreuve_competition_edit', {'competition': epreuve_competition.competition}) }}">edit</a>
+
+    {{ include('epreuve_competition/_delete_form.html.twig') }}
+{% endblock %}

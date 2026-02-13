@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sport index{% endblock %}
+
+{% block body %}
+    <h1>Sport index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Equipe</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sport in sports %}
+            <tr>
+                <td>{{ sport.id }}</td>
+                <td>{{ sport.equipe ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_sport_show', {'id': sport.id}) }}">show</a>
+                    <a href="{{ path('app_sport_edit', {'id': sport.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sport_new') }}">Create new</a>
+{% endblock %}

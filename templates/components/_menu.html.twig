@@ -1,7 +1,10 @@
 <nav>
     <ul>
+        <li><a href="{{ path('app_nom_sport_index') }}" class="{{ app.request.get('_route') == 'app_nom_sport_index' ? 'active' : '' }}">Sports</a></li>
+        <li><a href="{{ path('app_sport_index') }}" class="{{ app.request.get('_route') == 'app_sport_index' ? 'active' : '' }}">Types sport</a></li>
         <li><a href="{{ path('app_championnat_index') }}" class="{{ app.request.get('_route') == 'app_championnat_index' ? 'active' : '' }}">Championnats</a></li>
         <li><a href="{{ path('app_competition_index') }}" class="{{ app.request.get('_route') == 'app_competition_index' ? 'active' : '' }}">Compétitions</a></li>
         <li><a href="{{ path('app_epreuve_index') }}" class="{{ app.request.get('_route') == 'app_epreuve_index' ? 'active' : '' }}">Epreuves</a></li>
+        <li><a href="{{ path('app_epreuve_competition_index') }}" class="{{ app.request.get('_route') == 'app_epreuve_competition_index' ? 'active' : '' }}">Compétitions/Epreuves</a></li>
     </ul>
 </nav>
