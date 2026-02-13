@@ -68,3 +68,6 @@
 ###> phpunit/phpunit ###
 /.phpunit.cache/
 ###< phpunit/phpunit ###
+
+/migrations/*
+!/migrations/.gitignore

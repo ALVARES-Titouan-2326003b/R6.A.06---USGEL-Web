@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\EpreuveCompetition;
-use App\Form\EpreuveCompetitionType;
+use App\Form\EpreuveCompetition1Type;
 use App\Repository\EpreuveCompetitionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/epreuve/competition')]
+#[Route('/epreuve-competition')]
 final class EpreuveCompetitionController extends AbstractController
 {
     #[Route(name: 'app_epreuve_competition_index', methods: ['GET'])]
@@ -26,7 +26,7 @@ final class EpreuveCompetitionController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $epreuveCompetition = new EpreuveCompetition();
-        $form = $this->createForm(EpreuveCompetitionType::class, $epreuveCompetition);
+        $form = $this->createForm(EpreuveCompetition1Type::class, $epreuveCompetition);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -42,7 +42,7 @@ final class EpreuveCompetitionController extends AbstractController
         ]);
     }
 
-    #[Route('/{competition}', name: 'app_epreuve_competition_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'app_epreuve_competition_show', methods: ['GET'])]
     public function show(EpreuveCompetition $epreuveCompetition): Response
     {
         return $this->render('epreuve_competition/show.html.twig', [
@@ -50,10 +50,10 @@ final class EpreuveCompetitionController extends AbstractController
         ]);
     }
 
-    #[Route('/{competition}/edit', name: 'app_epreuve_competition_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'app_epreuve_competition_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, EpreuveCompetition $epreuveCompetition, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(EpreuveCompetitionType::class, $epreuveCompetition);
+        $form = $this->createForm(EpreuveCompetition1Type::class, $epreuveCompetition);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -68,10 +68,10 @@ final class EpreuveCompetitionController extends AbstractController
         ]);
     }
 
-    #[Route('/{competition}', name: 'app_epreuve_competition_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'app_epreuve_competition_delete', methods: ['POST'])]
     public function delete(Request $request, EpreuveCompetition $epreuveCompetition, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$epreuveCompetition->getCompetition(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$epreuveCompetition->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($epreuveCompetition);
             $entityManager->flush();
         }

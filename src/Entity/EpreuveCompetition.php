@@ -9,14 +9,22 @@ use Doctrine\ORM\Mapping as ORM;
 class EpreuveCompetition
 {
     #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
     #[ORM\ManyToOne(inversedBy: 'epreuveCompetitions')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Competition $competition = null;
 
-    #[ORM\Id]
     #[ORM\ManyToOne(inversedBy: 'epreuveCompetitions')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Epreuve $epreuve = null;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getCompetition(): ?Competition
     {
