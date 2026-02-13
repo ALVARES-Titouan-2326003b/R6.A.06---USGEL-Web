@@ -13,7 +13,7 @@ final class EpreuveCompetitionControllerTest extends WebTestCase
     private KernelBrowser $client;
     private EntityManagerInterface $manager;
     private EntityRepository $epreuveCompetitionRepository;
-    private string $path = '/epreuve/competition/';
+    private string $path = '/epreuve-competition/';
 
     protected function setUp(): void
     {
@@ -42,7 +42,6 @@ final class EpreuveCompetitionControllerTest extends WebTestCase
 
     public function testNew(): void
     {
-        $this->markTestIncomplete();
         $this->client->request('GET', sprintf('%snew', $this->path));
 
         self::assertResponseStatusCodeSame(200);
@@ -59,7 +58,6 @@ final class EpreuveCompetitionControllerTest extends WebTestCase
 
     public function testShow(): void
     {
-        $this->markTestIncomplete();
         $fixture = new EpreuveCompetition();
         $fixture->setCompetition('My Title');
         $fixture->setEpreuve('My Title');
@@ -77,7 +75,6 @@ final class EpreuveCompetitionControllerTest extends WebTestCase
 
     public function testEdit(): void
     {
-        $this->markTestIncomplete();
         $fixture = new EpreuveCompetition();
         $fixture->setCompetition('Value');
         $fixture->setEpreuve('Value');
@@ -92,7 +89,7 @@ final class EpreuveCompetitionControllerTest extends WebTestCase
             'epreuve_competition[epreuve]' => 'Something New',
         ]);
 
-        self::assertResponseRedirects('/epreuve/competition/');
+        self::assertResponseRedirects('/epreuve-competition/');
 
         $fixture = $this->epreuveCompetitionRepository->findAll();
 
@@ -102,7 +99,6 @@ final class EpreuveCompetitionControllerTest extends WebTestCase
 
     public function testRemove(): void
     {
-        $this->markTestIncomplete();
         $fixture = new EpreuveCompetition();
         $fixture->setCompetition('Value');
         $fixture->setEpreuve('Value');
@@ -113,7 +109,7 @@ final class EpreuveCompetitionControllerTest extends WebTestCase
         $this->client->request('GET', sprintf('%s%s', $this->path, $fixture->getId()));
         $this->client->submitForm('Delete');
 
-        self::assertResponseRedirects('/epreuve/competition/');
+        self::assertResponseRedirects('/epreuve-competition/');
         self::assertSame(0, $this->epreuveCompetitionRepository->count([]));
     }
 }

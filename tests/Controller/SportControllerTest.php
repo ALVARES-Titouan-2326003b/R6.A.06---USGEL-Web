@@ -42,7 +42,6 @@ final class SportControllerTest extends WebTestCase
 
     public function testNew(): void
     {
-        $this->markTestIncomplete();
         $this->client->request('GET', sprintf('%snew', $this->path));
 
         self::assertResponseStatusCodeSame(200);
@@ -59,7 +58,6 @@ final class SportControllerTest extends WebTestCase
 
     public function testShow(): void
     {
-        $this->markTestIncomplete();
         $fixture = new Sport();
         $fixture->setEquipe('My Title');
         $fixture->setNom('My Title');
@@ -77,7 +75,6 @@ final class SportControllerTest extends WebTestCase
 
     public function testEdit(): void
     {
-        $this->markTestIncomplete();
         $fixture = new Sport();
         $fixture->setEquipe('Value');
         $fixture->setNom('Value');
@@ -102,7 +99,6 @@ final class SportControllerTest extends WebTestCase
 
     public function testRemove(): void
     {
-        $this->markTestIncomplete();
         $fixture = new Sport();
         $fixture->setEquipe('Value');
         $fixture->setNom('Value');
